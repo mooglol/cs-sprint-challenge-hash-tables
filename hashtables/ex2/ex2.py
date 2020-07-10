@@ -6,9 +6,20 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    # set up route list with slots
+    route = [None] * length
+
+    route_find = {}
+
+    for ticket in tickets:
+        route_find[ticket.source] = ticket.destination
+
+    next_route = route_find["NONE"]
+
+    for current in range(0, length):
+
+        route[current] = next_route
+
+        next_route = route_find[next_route]
 
     return route
